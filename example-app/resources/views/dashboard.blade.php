@@ -2,7 +2,26 @@
 
 @section('content')
     <!-- Modern Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <!-- Modern Navigation Bar -->
+    <style>
+        .navbar-custom {
+            background: linear-gradient(90deg, #2A8891, #48C2CC, #A8E7EB);
+        }
+
+        /* Reusable button style */
+        .btn-custom {
+            background: linear-gradient(90deg, #2A8891, #2A8891, #2A8891);
+            color: white;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(90deg, #A8E7EB, #A8E7EB, #A8E7EB);
+            color: #2A8891;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="/dashboard">Admin Dashboard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +50,7 @@
                 </ul>
                 <form class="d-flex" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button class="btn btn-outline-light" type="submit">Logout</button>
+                    <button class="btn btn-custom" type="submit">Logout</button>
                 </form>
             </div>
         </div>
@@ -48,7 +67,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-box-seam fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">Product Category Management</h5>
-                        <a href="{{ url('/categories') }}" class="btn btn-primary mt-3">Manage Categories</a>
+                        <a href="{{ url('/categories') }}" class="btn btn-custom mt-3">Manage Categories</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +78,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-cart-plus fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">Product Management</h5>
-                        <a href="{{ url('/products') }}" class="btn btn-primary mt-3">Manage Products</a>
+                        <a href="{{ url('/products') }}" class="btn btn-custom mt-3">Manage Products</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +89,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-people fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">User Management</h5>
-                        <a href="{{ url('/users') }}" class="btn btn-primary mt-3">Manage Users</a>
+                        <a href="{{ url('/users') }}" class="btn btn-custom mt-3">Manage Users</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +100,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-receipt fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">Order Management</h5>
-                        <a href="{{ url('/orders') }}" class="btn btn-primary mt-3">Manage Orders</a>
+                        <a href="{{ url('/orders') }}" class="btn btn-custom mt-3">Manage Orders</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +111,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-truck fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">Deliverers Management</h5>
-                        <a href="{{ url('/deliverers') }}" class="btn btn-primary mt-3">Manage Deliverers</a>
+                        <a href="{{ url('/deliverers') }}" class="btn btn-custom mt-3">Manage Deliverers</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +122,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-sliders fs-1 mb-3 text-primary"></i>
                         <h5 class="card-title">Customizations Management</h5>
-                        <a href="{{ url('/customizations') }}" class="btn btn-primary mt-3">Manage Customizations</a>
+                        <a href="{{ url('/customizations') }}" class="btn btn-custom mt-3">Manage Customizations</a>
                     </div>
                 </div>
             </div>

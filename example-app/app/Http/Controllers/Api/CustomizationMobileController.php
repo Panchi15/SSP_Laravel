@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Customization;
 use Illuminate\Http\Request;
+use App\Services\GeocodingService;
 
 class CustomizationMobileController extends Controller
 {
     // Store a new customization (Mobile API)
-    public function store(Request $request)
+    public function store(Request $request, GeocodingService $geocodingService)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -38,6 +39,13 @@ class CustomizationMobileController extends Controller
             $imagePath = $filePath;
         }
 
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        $address = $geocodingService->getAddressFromCoordinates($latitude, $longitude);
+
+//        dd($address);
+
         // Create the customization
         $customization = Customization::create([
             'title' => $request->title,
@@ -51,6 +59,7 @@ class CustomizationMobileController extends Controller
             'user_id' => $request->user_id,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
+            'address' => $address,
         ]);
 
         return response()->json([
